@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>
+		Temperature Conversion
+	</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Ibarra+Real+Nova&display=swap" rel="stylesheet">
+
+	<style>
+	*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Ibarra Real Nova', serif;
+        font-size: 25px;
+        color:rgb(247, 80, 80) ;
+        
+        }
+    body{
+        height:100vh ;
+        background: linear-gradient(#2b5877, #4E4376);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+    #main h1{
+        padding-left: 150px;
+        font-size: 45px;
+        color: #FF647F;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+    }
+    #main>h1 span{
+        margin: 0 15px;
+        display: flex;
+        align-items: center;
+
+    }
+    #main>h1 span img{
+        height: 55px;
+        background-color: rgb(248, 247, 247);
+    }
+   
+    .cf span{
+        display: flex;
+        align-items: center;
+        margin-right: 5px ;
+        margin-left: 5px;
+    }
+    .cf span img{
+        height: 4rem;  
+        margin-top: -1rem;
+     } 
+    .container{
+        width: 700px;
+        height: 350px;
+        background-color: #010101;
+        padding: 80px 50px;
+        box-shadow: 0 20px 25px rgb(0, 0, 0.25);
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .cf{
+        width: 45%;
+        font-weight: 500;
+        
+        }
+    input{
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        border: 2px solid #e4c3c3;
+        outline-style: inset;
+        outline-width: 0.01cm;
+        outline-color: #db6c6c;
+        margin-top: 10px;
+        padding: 0 10px;
+        line-height: 1.6;
+    }
+    @media screen and (max-width:600px) {
+       h1{
+        font-size: 20px;
+        margin-left: -140px;
+       } 
+       .container{
+        width: 350px;
+        margin-left: 50px;
+        height: 250px;
+       }
+       .cf span img{
+        margin-top: -60px;
+       }
+       input{
+        height: 40px;
+       }
+    }
+	</style>
+</head>
+
+<body>
+    <div id="main">
+        <h1>Fahrenheit<span><img src="images/a.jpg" alt=""></span>Celcius</h1> 
+        <br>
+        <div class="container">
+             <br>
+            <div class="cf">
+                <label for="fahrenheit"><span><img src="images/fe.jpg" alt=""></span></label>
+                <input type="number" id="fahrenheit">
+            </div>
+
+            <div class="cf">
+                <label for="celsius"><span><img src="images/c1.jpg" alt="" srcset=""></span></label>
+                <input type="number" id="celsius">
+            </div>
+        
+        </div>
+
+	<script>
+		let celsius = document.getElementById('celsius');
+		let fahrenheit = document.getElementById('fahrenheit');
+        fahrenheit.oninput = function () {
+			let c = ((parseFloat(fahrenheit.value) - 32) * 5) / 9;
+			celsius.value = parseFloat(c.toFixed(2));
+		}
+		celsius.oninput = function () {
+			let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+			fahrenheit.value = parseFloat(f.toFixed(2));
+		}
+	</script>
+    </div>
+</body>
+</html>
